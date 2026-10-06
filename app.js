@@ -5,7 +5,6 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 const canvas = document.getElementById('c');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-renderer.setSize(innerWidth - 296, innerHeight);
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -15,7 +14,7 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x141821);
 scene.fog = new THREE.Fog(0x141821, 40, 90);
 
-const camera = new THREE.PerspectiveCamera(48, (innerWidth - 296) / innerHeight, 0.1, 300);
+const camera = new THREE.PerspectiveCamera(48, innerWidth / innerHeight, 0.1, 300);
 camera.position.set(13, 8, 15);
 
 const controls = new OrbitControls(camera, canvas);
@@ -636,8 +635,10 @@ function refreshLabels() {
 // 自适应
 function onResize() {
   viewW = view.clientWidth; viewH = view.clientHeight;
-  renderer.setSize(viewW, viewH, false);
+  if (viewW < 2 || viewH < 2) return;
+  renderer.setSize(viewW, viewH);
   camera.aspect = viewW / viewH;
+  camera.fov = viewW < viewH ? 62 : 48; // 竖屏拉开视野，房子能完整入镜
   camera.updateProjectionMatrix();
 }
 window.addEventListener('resize', onResize);
@@ -661,6 +662,7 @@ function animate() {
   renderer.render(scene, camera);
 }
 
+if (window.matchMedia('(max-width: 760px)').matches) panel.classList.add('hide'); // 手机默认收起侧栏
 onResize();
 setMode('exterior');
 animate();
