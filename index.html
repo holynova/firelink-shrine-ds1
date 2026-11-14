@@ -4,6 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>传火祭祀场 · 3D立体导览</title>
+<meta name="description" content="黑暗之魂1传火祭祀场 3D 导览：38 个部件逐一参观，篝火、防火女、乌鸦巢都在。">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:#0c0d10}
@@ -18,22 +19,22 @@ html,body{height:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFo
 #panel .body::-webkit-scrollbar{width:6px}
 #panel .body::-webkit-scrollbar-thumb{background:#3a2c1c;border-radius:3px}
 .sec{margin-bottom:14px}
-.sec h2{font-size:12px;color:#9a8a70;font-weight:600;margin-bottom:8px;letter-spacing:.06em}
+.sec h2{font-size:13px;color:#9a8a70;font-weight:600;margin-bottom:8px;letter-spacing:.06em}
 .row{display:flex;flex-wrap:wrap;gap:6px}
 button{font-family:inherit;cursor:pointer}
 .vbtn{flex:1 1 40%;padding:8px 4px;font-size:13px;color:#e8e2d6;background:#1a1512;border:1px solid #3a2c1c;border-radius:9px;transition:.15s}
 .vbtn:hover{background:#241c14}
 .vbtn.on{background:#a34d12;border-color:#ff9a3c;color:#fff;font-weight:600}
-.chip{padding:7px 10px;font-size:12px;color:#e8e2d6;background:#1a1512;border:1px solid #3a2c1c;border-radius:20px;transition:.15s}
+.chip{padding:7px 10px;font-size:13px;color:#e8e2d6;background:#1a1512;border:1px solid #3a2c1c;border-radius:20px;transition:.15s}
 .chip.on{background:#7a3c10;border-color:#ff9a3c;color:#fff}
 input[type=range]{width:100%;accent-color:#ff9a3c;margin-top:4px}
 .range-lab{display:flex;justify-content:space-between;font-size:11px;color:#9a8a70;margin-top:2px}
-.cat{font-size:12px;color:#ff9a3c;font-weight:700;margin:10px 0 6px;display:flex;align-items:center;gap:6px}
+.cat{font-size:13px;color:#ff9a3c;font-weight:700;margin:10px 0 6px;display:flex;align-items:center;gap:6px}
 .cat::after{content:"";flex:1;height:1px;background:#2a2118}
 .pbtn{display:block;width:100%;text-align:left;padding:8px 10px;margin-bottom:5px;font-size:13px;color:#e8e2d6;background:#171310;border:1px solid #2e2418;border-radius:9px;transition:.15s}
 .pbtn:hover{background:#221a12;border-color:#ff9a3c}
 .pbtn.on{background:#5c2c0c;border-color:#ff9a3c;color:#fff;font-weight:600}
-#panel footer{padding:10px 14px;font-size:10px;color:#6b5f4c;border-top:1px solid #2a2118;line-height:1.6}
+#panel footer{padding:10px 14px;font-size:11px;color:#6b5f4c;border-top:1px solid #2a2118;line-height:1.6}
 #view{flex:1;position:relative;min-width:0}
 #c{position:absolute;inset:0;width:100%;height:100%;display:block}
 #labels{position:absolute;inset:0;pointer-events:none;overflow:hidden}
@@ -41,20 +42,20 @@ input[type=range]{width:100%;accent-color:#ff9a3c;margin-top:4px}
 .lbl.hot{background:rgba(160,70,10,.94);border-color:#ffb066;font-weight:700;color:#fff}
 #info{position:absolute;top:14px;right:14px;width:272px;max-width:calc(100% - 28px);background:rgba(14,12,10,.95);border:1px solid #6b3a1a;border-radius:14px;padding:14px 14px 12px;color:#e8e2d6;display:none;z-index:15;box-shadow:0 8px 30px rgba(0,0,0,.6)}
 #info.show{display:block}
-#info h3{font-size:15px;color:#ffb066;margin-bottom:2px}
+#info h3{font-size:16px;color:#ffb066;margin-bottom:2px}
 #info .c{font-size:11px;color:#ff9a3c;margin-bottom:8px}
-#info p{font-size:12.5px;line-height:1.65;color:#d6c9b4}
+#info p{font-size:13px;line-height:1.65;color:#d6c9b4}
 #info .x{position:absolute;top:8px;right:10px;background:none;border:none;color:#9a8a70;font-size:16px}
 #info .x:hover{color:#fff}
 #hint{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);font-size:11px;color:#cbbfa8;background:rgba(12,10,8,.75);padding:6px 14px;border-radius:16px;border:1px solid rgba(255,160,90,.3);white-space:nowrap;z-index:5}
-#menuBtn{position:absolute;top:12px;left:12px;z-index:25;width:40px;height:40px;border-radius:12px;border:1px solid #6b3a1a;background:rgba(14,12,10,.92);color:#ffb066;font-size:18px;display:none}
-#loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#0c0d10;color:#9a8a70;font-size:14px;z-index:30;flex-direction:column;gap:10px}
+#menuBtn{position:absolute;top:12px;left:12px;z-index:25;width:40px;height:40px;border-radius:12px;border:1px solid #6b3a1a;background:rgba(14,12,10,.92);color:#ffb066;font-size:16px;display:none}
+#loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#0c0d10;color:#9a8a70;font-size:13px;z-index:30;flex-direction:column;gap:10px}
 .spin{width:34px;height:34px;border:3px solid #3a2c1c;border-top-color:#ff9a3c;border-radius:50%;animation:sp 1s linear infinite}
 @keyframes sp{to{transform:rotate(360deg)}}
 @media (max-width:760px){
   #panel{position:absolute;height:100%;box-shadow:4px 0 24px rgba(0,0,0,.5)}
   #menuBtn{display:block}
-  #hint{display:none}
+  #hint{white-space:normal;text-align:center;max-width:calc(100% - 24px);padding:6px 12px;line-height:1.5}
 }
 </style>
 <script type="importmap">
@@ -69,7 +70,7 @@ input[type=range]{width:100%;accent-color:#ff9a3c;margin-top:4px}
   <aside id="panel">
     <header>
       <h1><span class="b">传火祭祀场</span> · 3D导览</h1>
-      <p class="sub">黑暗之魂1 · 不死人的篝火之地<br>遗迹 / 地下 / 全部件逐一参观</p>
+      <p class="sub">黑暗之魂1 · 不死人的篝火之地<br>38 个部件逐一参观，点任意部件看介绍</p>
     </header>
     <div class="body">
       <div class="sec">
@@ -89,7 +90,7 @@ input[type=range]{width:100%;accent-color:#ff9a3c;margin-top:4px}
         </div>
         <div style="margin-top:10px">
           <input type="range" id="explode" min="0" max="100" value="0"/>
-          <div class="range-lab"><span>💥 分层展开</span><span>穹顶 / 主层 / 地下</span></div>
+          <div class="range-lab"><span>💥 分层展开</span><span>穹顶与主层上移</span></div>
         </div>
       </div>
       <div class="sec">
@@ -108,11 +109,19 @@ input[type=range]{width:100%;accent-color:#ff9a3c;margin-top:4px}
       <div class="c" id="infoCat"></div>
       <p id="infoDesc"></p>
     </div>
-    <div id="hint">左键拖拽旋转 · 滚轮缩放 · 右键平移 · 点击任意部件查看介绍</div>
-    <button id="menuBtn">☰</button>
+    <div id="hint">左键拖拽旋转、滚轮缩放、右键平移，点击任意部件查看介绍</div>
+    <button id="menuBtn" aria-label="打开部件列表">☰</button>
     <div id="loading"><div class="spin"></div>正在点燃篝火…</div>
   </div>
 </div>
+<script>
+window.__firelinkReady=false;
+setTimeout(function(){
+  if(window.__firelinkReady)return;
+  var l=document.getElementById('loading');
+  if(l)l.innerHTML='<div style="font-size:16px;color:#e8e2d6">篝火没点着……</div><div style="font-size:13px">3D 加载失败，可能是网络问题</div><button onclick="location.reload()" style="margin-top:6px;padding:10px 18px;border-radius:10px;border:1px solid #6b3a1a;background:#1a1512;color:#ffb066;font-size:13px">重新加载</button>';
+},15000);
+</script>
 <script type="module" src="app.js"></script>
 </body>
 </html>

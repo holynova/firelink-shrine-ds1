@@ -367,8 +367,8 @@ function P(id, parent) {
 
 defPart('ruins-out', { name: '遗迹外墙', cat: 'out', layer: 'main', go: 'exterior', label: [-9.5, 3.2, 0], viewDir: [-1, .55, .4], desc: '环绕中央广场的残破石墙。火快要熄灭了，墙却还在这里——它们比大多数不死人都要长寿。' });
 defPart('plaza', { name: '中央广场', cat: 'main', layer: 'main', go: 'main', inMain: 1, label: [0, 1.4, 6], viewDir: [.7, .85, .7], desc: '被不死人踩了无数遍的环形广场。石板上全是裂缝和灰烬，但只要篝火还在，传火祭祀场就还在。' });
-defPart('roofslab', { name: '残破石顶', cat: 'out', layer: 'roof', go: 'exterior', label: [19, 7.6, -5], viewDir: [.8, .7, -.4], desc: '东废墟上残存的石顶，只盖住了一角。塌下来的石头，现在都是广场的地砖。' });
-defPart('crownest', { name: '乌鸦巢', cat: 'out', layer: 'roof', go: 'exterior', label: [19, 7.2, -5], viewDir: [.6, .7, -.6], desc: '东屋顶上的巨型鸟巢，树枝编得比王宫还结实。想回北方不死院？蜷起来装睡，乌鸦自会把你抓走。' });
+defPart('roofslab', { name: '残破石顶', cat: 'out', layer: 'roof', go: 'exterior', label: [22.3, 7.5, -5], viewDir: [.8, .7, -.4], desc: '东废墟上残存的石顶，只盖住了一角。塌下来的石头，现在都是广场的地砖。' });
+defPart('crownest', { name: '乌鸦巢', cat: 'out', layer: 'roof', go: 'exterior', label: [16.6, 6.7, -5], viewDir: [.6, .7, -.6], desc: '东屋顶上的巨型鸟巢，树枝编得比王宫还结实。想回北方不死院？蜷起来装睡，乌鸦自会把你抓走。' });
 defPart('crow', { name: '巨型乌鸦', cat: 'out', layer: 'roof', go: 'exterior', label: [19, 8.8, -5], viewDir: [.6, .5, -.6], desc: '巢的主人。它不说话，只跑快递——把装睡的不死人空运回北方不死院，童叟无欺。' });
 defPart('aqueduct', { name: '水道桥', cat: 'out', layer: 'main', go: 'exterior', label: [-23, 10, 2], viewDir: [-1, .5, .5], desc: '通往城外不死镇的古老水道桥。桥身全是拱门，风声混着深渊的回响，走夜路记得扶稳。' });
 defPart('aqua-entry', { name: '水道桥入口', cat: 'out', layer: 'main', go: 'exterior', label: [-32, 4.5, 2], viewDir: [-1, .4, .3], desc: '水道桥西端的黑暗廊道。里面有只下水道老鼠和一具尸体——老鼠比尸体难对付。' });
@@ -1099,7 +1099,7 @@ function ensureVisible(p) {
 function clearHl() {
   if (hlBox) { scene.remove(hlBox); hlBox.geometry.dispose(); hlBox.material.dispose(); hlBox = null; }
 }
-const LAYERSUFFIX = { roof: ' · 穹顶', main: ' · 遗迹', under: ' · 地下层', garden: ' · 室外' };
+const LAYERSUFFIX = { roof: ' · 穹顶' };
 function selectPart(id) {
   const p = PARTS[id];
   if (!p || !p.group) return;
@@ -1227,7 +1227,9 @@ function animate() {
 }
 
 if (window.matchMedia('(max-width: 760px)').matches) panel.classList.add('hide'); // 手机默认收起侧栏
+if (window.matchMedia('(pointer: coarse)').matches) document.getElementById('hint').textContent = '单指拖动旋转、双指捏合缩放，点部件看介绍';
 onResize();
 setMode('exterior');
 animate();
+window.__firelinkReady = true;
 document.getElementById('loading').style.display = 'none';
