@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1200" height="360" viewBox="0 0 1200 360"
+     role="img" aria-labelledby="title desc">
+  <title id="title">传火祭祀场 · 3D 导览 — 黑暗之魂 1 Firelink Shrine</title>
+  <desc id="desc">暗石底标题：传火祭祀场，黑魂 1 不死人的篝火之地；右侧是篝火示意：断拱之下，插在灰烬堆里的剑与火焰。</desc>
+
+  <rect width="1200" height="360" rx="26" fill="#171310"/>
+
+  <g id="title-block" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <text x="56" y="62" font-size="19" letter-spacing="3" fill="#a89a8a">DARK SOULS · FIRELINK SHRINE · 3D 导览</text>
+    <text x="56" y="128" font-size="62" font-weight="700" fill="#ff8c2e">传火祭祀场</text>
+    <text x="56" y="168" font-size="23" fill="#ede3d3">黑魂 1 · 不死人的篝火之地</text>
+    <text x="56" y="204" font-size="19" fill="#a89a8a">38 个部件逐一参观，4 种视角，分层展开看透三层结构。</text>
+    <g id="chips" font-size="18" fill="#ede3d3" text-anchor="middle">
+      <g><rect x="56" y="238" width="126" height="36" rx="18" fill="#241f1a" stroke="#4a4238" stroke-width="1.5"/><text x="119" y="262">38 个部件</text></g>
+      <g><rect x="194" y="238" width="126" height="36" rx="18" fill="#241f1a" stroke="#4a4238" stroke-width="1.5"/><text x="257" y="262">4 种视角</text></g>
+      <g><rect x="332" y="238" width="112" height="36" rx="18" fill="#241f1a" stroke="#4a4238" stroke-width="1.5"/><text x="388" y="262">分层展开</text></g>
+      <g><rect x="456" y="238" width="112" height="36" rx="18" fill="#241f1a" stroke="#4a4238" stroke-width="1.5"/><text x="512" y="262">粉丝致敬</text></g>
+    </g>
+    <text x="56" y="316" font-size="17" fill="#a89a8a">布局依据 Fextralife Wiki 与社区地图 · 非官方设定</text>
+  </g>
+
+  <g id="bonfire" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <!-- 断拱 -->
+    <path d="M 800 322 A 170 170 0 0 1 940 64" fill="none" stroke="#4a4238" stroke-width="20"/>
+    <path d="M 1000 64 A 170 170 0 0 1 1140 322" fill="none" stroke="#4a4238" stroke-width="20"/>
+    <path d="M 838 322 A 132 132 0 0 1 948 100" fill="none" stroke="#35302a" stroke-width="10"/>
+    <path d="M 992 100 A 132 132 0 0 1 1102 322" fill="none" stroke="#35302a" stroke-width="10"/>
+    <!-- 碎石 -->
+    <polygon points="955,52 968,44 974,58 960,62" fill="#4a4238"/>
+    <polygon points="940,80 950,74 954,84 944,86" fill="#35302a"/>
+    <!-- 灰烬堆 -->
+    <ellipse cx="970" cy="308" rx="96" ry="20" fill="#241f1a" stroke="#4a4238" stroke-width="2"/>
+    <ellipse cx="970" cy="304" rx="60" ry="11" fill="#2e2822"/>
+    <!-- 剑 -->
+    <g>
+      <rect x="962" y="196" width="16" height="112" rx="2" fill="#b8b0a4"/>
+      <polygon points="962,196 978,196 970,180" fill="#b8b0a4"/>
+      <rect x="944" y="206" width="52" height="10" rx="4" fill="#8a8074"/>
+      <rect x="965" y="178" width="10" height="28" rx="3" fill="#6b5d4f"/>
+      <circle cx="970" cy="174" r="7" fill="#8a8074"/>
+    </g>
+    <!-- 火焰 -->
+    <g>
+      <path d="M970,108 C992,140 1002,156 1002,178 C1002,202 988,216 970,216 C952,216 938,202 938,178 C938,156 948,140 970,108 Z" fill="#ff8c2e"/>
+      <path d="M970,140 C982,160 988,170 988,182 C988,197 980,205 970,205 C960,205 952,197 952,182 C952,170 958,160 970,140 Z" fill="#ffc46b"/>
+      <ellipse cx="970" cy="190" rx="8" ry="12" fill="#fff3d6"/>
+    </g>
+    <!-- 火星 -->
+    <g fill="#ff8c2e">
+      <circle cx="930" cy="120" r="3"/>
+      <circle cx="1015" cy="105" r="2.5"/>
+      <circle cx="1008" cy="150" r="2"/>
+      <circle cx="925" cy="165" r="2"/>
+      <circle cx="970" cy="92" r="2.5"/>
+    </g>
+    <text x="970" y="348" font-size="18" fill="#a89a8a" text-anchor="middle">中央篝火 · BONFIRE</text>
+  </g>
+</svg>
