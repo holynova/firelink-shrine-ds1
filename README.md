@@ -1,9 +1,63 @@
-# 传火祭祀场 · 3D 导览
+<p align="center">
+  <img src="./assets/readme/hero.svg" width="100%" alt="传火祭祀场 · 3D 导览 — 黑暗之魂 1：断拱之下，插在灰烬堆里的剑与篝火">
+</p>
 
-黑暗之魂 1 传火祭祀场的 Three.js 3D 示意导览：38 个部件逐一参观。
+<p align="center">
+  <a href="https://holynova.github.io/firelink-shrine-ds1/">▶ 在线导览 Tour Online</a>
+  ·
+  <a href="https://github.com/holynova/firelink-shrine-ds1">GitHub 仓库</a>
+</p>
 
-在线体验：https://holynova.github.io/firelink-shrine-ds1/
+传火祭祀场是黑暗之魂 1 的 Three.js 3D 示意导览：按 Fextralife Wiki 与社区地图的布局，还原篝火广场、东废墟、墓地、水道桥与地下层，38 个部件逐一参观——点任意部件看介绍，相机自动飞过去。粉丝致敬作品，非官方设定。零构建，纯 JS + Three.js。
 
-操作：拖动旋转、滚轮缩放、右键平移，点击任意部件查看介绍；手机上单指拖动旋转、双指捏合缩放。左侧可切换外观 / 遗迹内部 / 地下层 / 透视四个视角，也可拖动“分层展开”把穹顶和主层拉开看。
+A Three.js 3D tour of Firelink Shrine from Dark Souls 1: the bonfire plaza, eastern ruins, graveyard, aqueduct and underground levels, laid out from the Fextralife Wiki and community maps. 38 clickable parts, each with a description and a camera fly-to. A fan tribute, not official. Zero build, pure JavaScript + Three.js.
 
-粉丝致敬的示意模型，按游戏印象还原，非官方设定。布局依据见 REFERENCE.md。
+## 截图 / Screenshots
+
+<p align="center">
+  <img src="./assets/readme/screenshot-exterior.png" width="640" alt="外观视角：断拱、石墙与中央篝火，左侧是视角切换与部件列表面板">
+  <br>
+  <img src="./assets/readme/screenshot-interior.png" width="640" alt="遗迹内部视角：南墙与东墙切开，中央篝火、消沉战士、水井与墓碑群一览无余">
+</p>
+
+## 功能 / Features
+
+- **38 个部件，分 4 类**：外部 6（遗迹外墙、残破石顶、乌鸦巢、巨型乌鸦、水道桥、水道桥入口）、遗迹内部 19（中央篝火、消沉战士、三重门洞、佩特鲁斯一行、密室宝箱群、大剑之冢、教区升降机井……）、地下层 4（防火女囚室、骑士洛特里克、小隆德升降机……）、室外 9（帕奇斯、洋葱骑士、葛里格斯……）。
+- **4 种视角**：外观 / 遗迹内部（切开南墙与东墙）/ 地下层（掀开顶盖看防火女囚室与小隆德升降机）/ 透视（外墙半透明）。
+- **分层展开**：拖动滑块，穹顶上移 6 米、主层上移 3 米，三层结构拉开看。
+- **点部件看介绍**：点 3D 场景里的任意部件，或点左侧部件列表，弹出名称、分类与介绍，相机自动飞到最佳观看位并用橙色框高亮。
+- **漫游操作**：拖拽旋转、滚轮缩放、右键平移；移动端单指旋转、双指缩放；标注开关与自动旋转。
+- **布局有据**：篝火略偏南、水井在西、三重门洞通三条路、乌鸦巢在东废墟屋顶、墓地是北边上坡——依据见 `REFERENCE.md`（Fextralife Wiki、社区地图、日文详图）。
+
+## 本地运行 / Run Locally
+
+零构建，直接起一个静态服务器打开即可（ES Module 需经 http(s)，不要用 `file://` 直接打开）：
+
+```bash
+python3 -m http.server 8000
+# 打开 http://localhost:8000
+```
+
+## 技术 / Tech
+
+- Three.js 0.160（CDN import map）+ OrbitControls；全部几何体由代码生成，无外部模型文件。
+- 部件系统：`defPart()` 定义 38 个部件（名称 / 分类 / 描述 / 观看方向），点击拾取后 `selectPart()` 飞镜 + 高亮框；视角模式切换墙体可见性与材质透明度。
+- 移动端适配：侧栏可收起、触屏操作提示。
+
+```
+index.html          入口：视角按钮 / 分层展开滑块 / 部件列表 / 介绍卡片
+app.js              全部逻辑（约 1200 行）：地形与建筑 / 38 个部件 / 视角模式 / 点击介绍
+REFERENCE.md        布局依据：参考来源、布局要点、v1 不符点清单、v2 建模坐标系
+```
+
+## English
+
+**Firelink Shrine** is a Three.js 3D tour of Dark Souls 1's hub area, laid out from the Fextralife Wiki and community maps — a fan tribute, not official.
+
+- **38 parts in 4 groups**: exterior (6 — ruins wall, broken stone roof, crow's nest, giant crow, aqueduct…), shrine interior (19 — central bonfire, Crestfallen Warrior, triple doorways, Petrus's party, secret-room chests, Zweihander grave, parish lift shaft…), underground (4 — Fire Keeper's cell, Knight Lautrec, New Londo lift…), outdoors (9 — Patches, Siegmeyer, Griggs…).
+- **4 view modes**: exterior / interior (south and east walls cut away) / underground (roof lifted to reveal the Fire Keeper's cell and the New Londo lift) / X-ray (exterior walls turn translucent).
+- **Exploded view**: a slider lifts the dome 6 m and the main level 3 m to separate the three layers.
+- **Click any part** in the scene or the side list: a card shows its name, group and description, the camera flies to the best angle, and an orange box highlights it.
+- **Controls**: drag to orbit, scroll to zoom, right-drag to pan; touch: one finger to orbit, pinch to zoom. Label and auto-rotate toggles.
+- **Run it**: serve statically (`python3 -m http.server 8000`) — ES modules need http(s), not `file://`.
+- **Tech**: Three.js 0.160 via CDN import map, OrbitControls. All geometry is generated in code — no external model files. Layout sources are documented in `REFERENCE.md`.
